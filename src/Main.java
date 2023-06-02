@@ -15,8 +15,9 @@ public class Main {
         var salary = 15_000;
         var total = 0;
         var month = 0;
+        var target = 2_495_000;
 
-        while (total <= 2_495_000) {
+        while (total < target) {
             month++;
             total = total + salary;
 
@@ -42,14 +43,14 @@ public class Main {
 
     public static void task3() {
         System.out.println("Задача3");
-        int pops = 12_000_000;
+        double pops = 12_000_000;
         int growthPerThousand = 17;
         int deathPerThousand = 8;
 
         for (int year = 1; year <= 10; year++) {
-            int thousandsPops = pops / 1000;
-            int growthPerYear = thousandsPops * growthPerThousand;
-            int deathPerYear = thousandsPops * deathPerThousand;
+            double thousandsPops = pops / 1000;
+            double growthPerYear = thousandsPops * growthPerThousand;
+            double deathPerYear = thousandsPops * deathPerThousand;
 
             pops += growthPerYear - deathPerYear;
             System.out.println("Год " + year + " численность населения составляет" + pops);
@@ -61,10 +62,11 @@ public class Main {
         var bank = 15_000;
         var target = 12_000_000;
         var month = 0;
+        var percent = 7;
 
-        while (bank <= target) {
-            bank += bank / 100 * 7;
-            month ++;
+        while (bank < target) {
+            bank += bank / 100 * percent;
+            month++;
             System.out.println("Месяц " + month + " сумма " + bank);
         }
     }
@@ -77,7 +79,7 @@ public class Main {
 
         while (bank <= target) {
             bank += bank / 100 * 7;
-            month ++;
+            month++;
             if (month % 6 == 0) {
                 System.out.println("Месяц " + month + " сумма " + bank);
             }
@@ -90,16 +92,16 @@ public class Main {
         var month = 0;
         var year = 0;
 
-        while (year <= 9) {
+        while (year < 9) {
             bank += bank / 100 * 7;
-            month ++;
+            month++;
 
             if (month % 6 == 0) {
                 System.out.println("Месяц " + month + " сумма " + bank);
             }
 
             if (month % 12 == 0) {
-                year ++;
+                year++;
             }
         }
     }
@@ -108,8 +110,7 @@ public class Main {
         System.out.println("Задача7");
         var day = 1;
 
-        while (day <= 31) {
-            day ++;
+        for (; day <= 31; day += 7) {
 
             if (day % 7 == 0) {
                 System.out.println("Сегодня пятница," + day + "-е число. Необходимо подготовить отчет");
@@ -119,13 +120,14 @@ public class Main {
 
     public static void task8() {
         System.out.println("Задача8");
-        var year = 1823;
+        var year = 0;
         var comet = 79;
+        var currentYear = 2023;
 
-        while (year <= 2123) {
-            year ++;
+        while (year <= currentYear + 100) {
+            year++;
 
-            if (year % comet == 0) {
+            if (year <= currentYear + 100 && year >= currentYear - 200 && year % comet == 0) {
                 System.out.println(year);
             }
         }
